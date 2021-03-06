@@ -30,6 +30,7 @@ const StartGameScreen = (props) => {
     setConfirmed(false);
   };
   const confirmButtonHandler = () => {
+    //Because enteredValue is a String Value. Thus, apply type casting.
     const chosenNumber = parseInt(enteredValue);
     if (isNaN(chosenNumber) || chosenNumber > 99 || chosenNumber <= 0) {
       Alert.alert(
@@ -55,7 +56,7 @@ const StartGameScreen = (props) => {
       <Card style={styles.summaryStyle}>
         <Text>You selected</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title='START THE GAME'/>
+        <Button title='START THE GAME' onPress={()=> props.onStartGame(selectedNumber)}/>
       </Card>
     );
   }
